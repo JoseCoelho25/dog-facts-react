@@ -33,6 +33,7 @@ function App() {
     }
   
     const handleAdd = () => {
+        //so we cant add an empty value
       if (!input) return;
       setBreeds([...breeds, input]);
       setInput('');
@@ -40,13 +41,16 @@ function App() {
   
     return (
       <div>
-        <h1>Dog Facts App</h1>
-        <div className="block mx-auto">
+        <h1 className="text-2xl font-bold m-10">Dog Facts App</h1>
+        <div className="block max-w-screen-xl m-6">
           {breeds.map((breed, index) => (
-            <div key={index}>
+            <div key={index} className="text-xl flex w-full">
               {breed}
-              <button onClick={() => handleRemove(index)}>Remove</button>
+              <button onClick={() => handleRemove(index)}
+                className="items-end"
+              >Remove</button>
               <input
+                    className="items-end"
                   type="checkbox"
                   checked={checked[index]}
                   onChange={() => {
