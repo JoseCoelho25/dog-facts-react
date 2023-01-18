@@ -42,7 +42,7 @@ function App() {
     return (
       <div>
         <h1 className="text-2xl font-bold m-10">Dog Facts App</h1>
-        <div className="block max-w-screen-xl m-6">
+        <div className="block max-w-screen-xl mx-auto">
           {breeds.map((breed, index) => (
             <div key={index} className="text-xl flex justify-between w-full bg-orange-300 rounded-lg p-3 mb-2">
               {breed}
@@ -69,7 +69,7 @@ function App() {
         <input type="text"
               value={input}
               onChange={e=> setInput(e.target.value)}
-              className="border-2 border-black flex m-4 w-1/2 h-36 pb-24 pl-4"
+              className="border-2 border-black flex m-4 w-2/3 h-36 pb-24 pl-4 mx-auto"
               placeholder="Type the breed or details you want to add!"
         />
         <button onClick={() => setBreeds(breeds.filter(breed => !breedsToRemove.includes(breed)))}
