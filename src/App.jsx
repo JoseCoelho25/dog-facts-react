@@ -40,11 +40,11 @@ function App() {
     };
   
     return (
-      <div>
-        <h1 className="text-2xl font-bold m-10">Dog Facts App</h1>
-        <div className="block max-w-screen-xl mx-auto">
+      <div className="m-4">
+        <h1 className="text-2xl font-bold m-10 max-w-screen-2xl mx-auto">Dog Facts App</h1>
+        <div className="block max-w-screen-2xl mx-auto">
           {breeds.map((breed, index) => (
-            <div key={index} className="text-xl flex justify-between w-full bg-orange-300 rounded-lg p-3 mb-2">
+            <div key={index} className="text-sm md:text-xl flex justify-between w-full bg-orange-300 rounded-lg p-3 mb-2">
               {breed}
               <div className="justify-end flex flex-nowrap rounded-lg ">
               <button onClick={() => handleRemove(index)}
@@ -66,16 +66,23 @@ function App() {
             </div>
           ))}
         </div>
-        <input type="text"
+        <div className="container max-w-screen-2xl mx-auto">
+          <input type="text"
               value={input}
               onChange={e=> setInput(e.target.value)}
-              className="border-2 border-black flex m-4 w-2/3 h-36 pb-24 pl-4 mx-auto"
+              className="border-2 border-black w-full h-36 pb-24 pl-4 "
               placeholder="Type the breed or details you want to add!"
         />
+        </div>
+        
+        <div className="grid grid-cols-1 gap-y-2 md:gap-y-6 h-24 max-w-screen-2xl mx-auto">
         <button onClick={() => setBreeds(breeds.filter(breed => !breedsToRemove.includes(breed)))}
-                className="bg-blue-500 rounded-lg "
+                className="bg-blue-500 rounded-2xl "
         >Remove</button>
-        <button onClick={handleAdd}>Add</button>
+        <button onClick={handleAdd}
+                className="bg-red-500 rounded-2xl"
+        >Add</button>
+        </div>
       </div>
     );
   }
